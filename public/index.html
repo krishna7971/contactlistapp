@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html ng-app="contactListApp">
+<head>
+	<title>Basic Mean Stack App</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="/bower_components/bootstrap/dist/css/bootstrap.min.css">
+	<script type="text/javascript" src="/bower_components/angular/angular.js"></script>
+</head>
+<body >
+	<div class="container" ng-controller="contactListCntrls">
+		<div class="row">
+			<h1>Contact List::</h1>
+		</div>
+		<div class="row">
+			<table class="table">
+				<thead>
+					<tr>
+						<th>Name</th>
+						<th>Address</th>
+						<th>Phone</th>
+						<th>Email</th>
+						<th></th>
+						<th></th>
+					</tr>
+					<tr>
+						<th><input class="form-control" type="text" ng-model="model.name"/></th>
+						<th><input class="form-control" type="text" ng-model="model.address"/></th>
+						<th><input class="form-control" type="text" ng-model="model.phone"/></th>
+						<th><input class="form-control" type="text" ng-model="model.email"/></th>
+						<th><button class="btn btn-primary btn-xs" ng-click="doClear()">Clear</button></th>
+						<th><button class="btn-primary btn" ng-click="addRecord()">Add</button></th>
+					</tr>
+				</thead>
+				<tbody>
+						<tr ng-repeat="item in contectList">
+							<td>{{item.name}}</td>
+							<td>{{item.address}}</td>
+							<td>{{item.phone}}</td>
+							<td>{{item.email}}</td>
+							<td><i class="fa fa-trash" title="Remove" style="color:red" ng-click="removeContactList(item._id)"></i></td>
+						</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+	<script type="text/javascript" src="/module/contactListModule.js"></script>
+	<script type="text/javascript" src="/controllers/contactListCntrl.js"></script>
+</body>
+
+</html>
